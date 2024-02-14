@@ -73,7 +73,7 @@ export const SwipeCarousel = () => {
 
 
     return (
-        <div className="relative min-h-[500px] overflow-hidden py-8 max-lg-gutters">
+        <div className="relative min-h-[500px] w-[400px] overflow-hidden py-8 max-lg-gutters">
             <motion.div 
             style={{ x: dragX, }}
             drag="x"

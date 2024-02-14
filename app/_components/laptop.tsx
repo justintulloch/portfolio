@@ -32,7 +32,10 @@ function Sketch({Link}: {Link: string}){
 
 export default function Laptop({Link}: {Link: string}) {
     return (
-        <Canvas camera={{fov: 45, near: 0.1, far: 2000, position: [-3, 1.5, 4], }}>
+        <Canvas camera={{fov: 45, near: 0.1, far: 2000, position: [-3, 1.5, 4], }}  style={{
+            width: "50vh",
+            height: "50vh",
+        }}>
             <Suspense fallback={null}>
                 <Sketch Link={Link}/>
             </Suspense>

@@ -1,30 +1,40 @@
 
+
+
+import React, { useEffect, useState } from "react";
 import { getLeetCode } from "./leet-code";
 
-
-const LeetScore = async () => {
+const LeetScore: React.FC = () => {
+    const [loading, setLoading] = useState(false);
+    const [userData, setUserData] = useState<any>({});
     const id = "lizardking"
 
-    const { userData } = await getLeetCode(id);
-    const { solvedData } = await getLeetCode(id);
-    const { subData } = await getLeetCode(id);
-    
-
-  
-    
+    useEffect(() => {
+        const fetchData = async () => {
+           setLoading(true); // Start loading
+           const data = await getLeetCode(id);
+           setUserData(data);
+           setLoading(false); // Finish loading
+        }
+        fetchData();  
+    }, []); 
 
     return (
         <div>
-            <div>
-                <h1>{userData.username}</h1>
-                <h1>{userData.ranking}</h1>
-            </div>
-            <div>
-                <h1>{solvedData.solvedProblem}</h1>
-            </div>
-            <div>
-                <h1>{subData.lang}</h1>
-            </div>
+            {loading ? <p>Loading...</p> : (
+                <>
+                    <div>
+                        <h1>{userData.username}</h1>
+                        <h1>{userData.ranking}</h1>
+                    </div>
+                    <div>
+                        <h1>{userData.solvedProblem}</h1>
+                    </div>
+                    <div>
+                        <h1>{userData.lang}</h1>
+                    </div> 
+                </>
+            )}
         </div>
     );
 }
