@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --bluish-gray: #abb8e3;
+  --light-bg-color: #f4f4f4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -83,5 +85,12 @@
 
 
 
-
+.foo {
+  clip-path: polygon(0 0, 100% 0, 100% 5%, 0 100%);
+}
+@media screen and (max-width: 768px) {
+ .foo {
+    clip-path: polygon(0 0, 100% 0, 100% 15%, 0 100%);
+ }
+}
 

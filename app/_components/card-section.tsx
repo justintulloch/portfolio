@@ -5,10 +5,12 @@ import clsx from 'clsx';
 import { formatDistanceToNow, isYesterday } from "date-fns"
 import { AnimatePresence, Transition, Variants } from 'framer-motion'
 import Link from 'next/link'
-import React, { ComponentProps, useMemo } from 'react'
+import React, { ComponentProps, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Skeleton } from './skeleton';
 import { projectData } from '@/lib/data ';
+import Image from 'next/image';
+import Footer from './footer';
 
 
 const variants: Variants = {
@@ -78,20 +80,22 @@ const  Sidebar: React.FC<{ onHover: (description: string) => void}> = ({
 
 export default function CardSection(props: ComponentProps<"section">){
   const [localDate, setLocalDate] = React.useState(new Date());
-    const [hoverDesc, setHoverDesc] = React.useState<string | null>(null);
+  const [hoverDesc, setHoverDesc] = React.useState<string | null>("1");
+  const [relativeDate, setRelativeDate] = React.useState<string | null>(null);
 
-    useMemo(() => {
-      const intervalId = setInterval(() => {
-        setLocalDate(new Date());
-      }, 1000);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setLocalDate(new Date());
+    }, 1000);
 
-      return () => clearInterval(intervalId);
-    }, []);
+    return () => clearInterval(intervalId);
+  }, []);
 
-    const relativeDate = useMemo(() => {
-      if(!localDate) return;
-      return isYesterday(localDate) ? "Yesterday" : formatDistanceToNow(localDate, { addSuffix: true });
-    }, [localDate]);
+  useEffect(() => {
+    if(!localDate) return;
+    const date = isYesterday(localDate) ? "Yesterday" : formatDistanceToNow(localDate, { addSuffix: true });
+    setRelativeDate(date);
+  }, [localDate]);
     
     
 
@@ -99,11 +103,15 @@ export default function CardSection(props: ComponentProps<"section">){
 
   return (
     <section {...props}>
-      <div>
-      <h2 className="mb-2 text-xl font-bold text-white">
-       Recent Projects
-      </h2>
-      <p className="max-w-[46ch] leading-relaxed text-white">
+      <motion.div  initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }}  className="grow flex-col">
+        <article className="text-md">
+            <header className="container grid grid-cols-1 lg:grid-cols-12 gap-6 mt-12 lg:mb-20 items-center">
+                <div className="col-span-6 flex flex-col pr-12 gap-6">
+                    <h1 className="mb-2 text-xl font-bold text-white">
+                        Recent Projects
+                    </h1>
+                    <div className="flex items-center gap-4">
+                         <p className="max-w-[46ch] leading-relaxed text-white">
         I <del className="text-zinc-500">occasionally</del>{" "}
         <a
           className="link text-white"
@@ -124,7 +132,9 @@ export default function CardSection(props: ComponentProps<"section">){
         </a>
         .
       </p>   
-          <div className="mt-8 flex flex-col gap-8">
+                    </div>
+                    <div className="flex items-center gap-4">
+                           <div className="mt-8 flex flex-col gap-8">
             <Link href="/projects" className={clsx("min-w-0 max-w-full",
             "focusable flex w-fit gap-4 rounded pr-2 ring-offset-4 transition hover:opacity-60 focus:ring-red-500/40")}>
                 <div className="highlight relative aspect-square h-20 flex-none overflow-hidden rounded bg-zinc-100 ">
@@ -251,19 +261,35 @@ export default function CardSection(props: ComponentProps<"section">){
                 </div>
             </Link>
           </div>
-          <div className="pt-7 w-10/12 ml-8 h-fit">
-              <div className="lg:w-3/4">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-                          <section className="lg:sticky gap-2 lg:top-36 grid gap-x-2 text-xs grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 content-start">
+                    </div>
+                </div>
+                <div className="col-span-6  relative">
+                    <div className="rounded-2xl border-2 border-gray-500 overflow-hidden">
+                       <div className="m-[-1px]">
+                           <Image src="/assets/site-6.jpg" alt="hero" className="w-full max-h-[290px]" width={517} height={290}  />
+                       </div>
+                    </div>
+                </div>
+            </header>
+            <div className="container flex flex-col lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-6 pt-10">
+                <div className="lg:col-span-8 lg:max-w-[46rem] pb-12 xl:pl-0 xl:pr-16 order-2 ">
+                          <div>
+                              <div className="my-12 first:mt-0 last:mb-0">
+                                     {hoverDesc && <ProjectCards title="hoverCard" description={hoverDesc}  />} 
+                              </div>
+                          </div>
+                </div>
+              <aside className="lg:col-span-4 order-1">
+                      <div className="lg:sticky gap-2 lg:top-36 grid gap-x-2 text-xs grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 content-start">
                             <Sidebar onHover={(description) => setHoverDesc(description)} />
-                          </section>
-                          <section className="h-fit  my-7 mx-0 lg:my-0">
-                              {hoverDesc && <ProjectCards title="hoverCard" description={hoverDesc}  />}
-                          </section>
-                        </div>
-                </div>          
-          </div>
-      </div>
+                    </div>
+              </aside>
+            </div>
+        </article>
+      </motion.div>
+      <Footer />
     </section>
   )   
 };
+
+
