@@ -7,7 +7,9 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "prepare": "lint"
+    "prepare": "lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

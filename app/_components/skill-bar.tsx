@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils ";
 import { motion } from "framer-motion";
 
-
 const BlurDiv = ({
   blurValue,
   gradientStops,
@@ -18,7 +17,7 @@ const BlurDiv = ({
   <div
     className={cn(
       "pointer-events-none absolute inset-0 h-full w-full",
-      className
+      className,
     )}
     style={{
       zIndex,

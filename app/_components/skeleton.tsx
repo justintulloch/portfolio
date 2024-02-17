@@ -1,5 +1,5 @@
-import { clsx } from "clsx"
-import type { ComponentProps } from "react"
+import { clsx } from "clsx";
+import type { ComponentProps } from "react";
 
 /**
  * A loading placeholder.
@@ -12,9 +12,9 @@ export function Skeleton({ className, ...props }: ComponentProps<"span">) {
     <span
       className={clsx(
         className,
-        "skeleton inline-block h-[1em] w-20 rounded-[0.2em] align-middle"
+        "skeleton inline-block h-[1em] w-20 rounded-[0.2em] align-middle",
       )}
       {...props}
     />
-  )
+  );
 }

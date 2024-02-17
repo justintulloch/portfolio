@@ -1,18 +1,17 @@
 import { BsArrowUpRight } from "react-icons/bs";
 
-
-export const ButtonGooey = ({text}: {text: string}) => {
-    return (
-        <>
-            <div className="wrapper">
-                <button className="button">
-                    {text}                    
-                    <div className="bubble">
-                        <BsArrowUpRight className="h-5 w-5 text-white" />
-                    </div>
-                </button>
-            </div>
-            <svg
+export const ButtonGooey = ({ text }: { text: string }) => {
+  return (
+    <>
+      <div className="wrapper">
+        <button className="button">
+          {text}
+          <div className="bubble">
+            <BsArrowUpRight className="h-5 w-5 text-white" />
+          </div>
+        </button>
+      </div>
+      <svg
         className="absolute hidden "
         width="0"
         height="0"
@@ -36,7 +35,7 @@ export const ButtonGooey = ({text}: {text: string}) => {
           </filter>
         </defs>
       </svg>
-       <style jsx>{`
+      <style jsx>{`
         .wrapper {
           filter: url("#gooey");
           height: 100%;
@@ -80,6 +79,6 @@ export const ButtonGooey = ({text}: {text: string}) => {
           transform: translateX(210%) translateY(0%);
         }
       `}</style>
-        </>
-    )
-}
+    </>
+  );
+};

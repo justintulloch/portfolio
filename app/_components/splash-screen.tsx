@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SplashScreen = () => {
-  return (
-    <div>
-       splash
-    </div>
-  )
-}
+  return <div>splash</div>;
+};
 
 export default SplashScreen;
