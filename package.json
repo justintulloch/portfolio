@@ -11,14 +11,6 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --ext .ts,.tsx,.js,.jsx"
-    ],
-    "*{js,jsx,ts,tsx,json,cjs,mjs,md}": [
-      "prettier --write"
-    ]
-  },
   "dependencies": {
     "@react-three/drei": "^9.97.5",
     "@react-three/fiber": "^8.15.16",
