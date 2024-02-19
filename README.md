@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<h1 align="center">
+  <br>
+  <br>
+ TullochStudio.dev
+  <br>
+</h1>
 
-First, run the development server:
+<h4 align="center">My Software Engineer <a href="http://tullochstudio.dev" target="_blank">portfolio</a>.</h4>
+
+<p align="center">
+  <a href="https://badge.fury.io/js/electron-markdownify">
+    <img src="https://badge.fury.io/js/electron-markdownify.svg"
+         alt="Gitter">
+  </a>
+  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
+  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
+      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
+  </a>
+  <a href="https://www.paypal.me/AmitMerchant">
+    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#tech-stack">Tech stack</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#license">License</a>
+</p>
+
+![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+
+## Tech Stack
+
+* Framework: <a href="https://nextjs.org/">Next.js</a> 
+* Langauge: <a href="https://www.typescriptlang.org/">Typescript</a>, 
+* Development: <a href="https://vercel.com/home">Vercel</a>  
+* Analytics: <a href="https://vercel.com/analytics">Vercel Analytics</a>
+* Styling: <a href="https://tailwindcss.com/">Tailwind CSS</a>
+* Font: <a href="https://www.behance.net/gallery/63984485/Neue-Montreal-Free-Font?locale=en_US">NeueMontreal</a>
+* Third-Party-Packages: <a href="https://www.framer.com/motion/">Framer motion</a>, <a href="https://threejs.org/">Three.js</a>, 
+
+## How To Use
+
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone this repository
+$ git clone 
+
+# Go into the repository
+$ cd tullochstudio
+
+# Install dependencies
+$ npm install
+
+# Run the app
+$ npm start 
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+1. You are free to use this code as inspiration.
+2. Please do not copy it directly.
+3. Give it a Star on Github.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Please remove all of my personal information(posts, images, etc). 
