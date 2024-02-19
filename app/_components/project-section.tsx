@@ -27,7 +27,7 @@ const ProjectSection: React.FC<ProjectProps> = (props) => {
             <Laptop Link={props.project.link} />
           </div>
           <div className="flex">
-            <h2 className="sr-only">// languages</h2>
+            <h2 className="sr-only">languages</h2>
             <ul className="flex flex-wrap gap-2">
               {languages.map((language, index) => (
                 <li
@@ -45,7 +45,7 @@ const ProjectSection: React.FC<ProjectProps> = (props) => {
                 <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
                   {props.project.title}
                 </h1>
-                <h2 className="sr-only">// languages</h2>
+                <h2 className="sr-only">languages</h2>
               </div>
             </div>
             <div className="mt-6 text-white">

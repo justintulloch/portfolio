@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { ComponentProps, Suspense, useEffect, useState } from "react";
+import React, { ComponentProps } from "react";
 import { SwipeCarousel } from "./carousel";
 import localFont from "next/font/local";
-import LeetScore from "./code-score";
 import { ButtonGooey } from "./button";
 import Link from "next/link";
 import { PiDownloadSimpleLight } from "react-icons/pi";
