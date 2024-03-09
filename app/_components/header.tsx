@@ -2,6 +2,7 @@ import React, { ComponentProps } from "react";
 import clsx from "clsx";
 import Image from "next/image";
 import { MagneticTab } from "./magnetic-tab";
+import Link from "next/link";
 
 export default function Header({
   className,
@@ -16,7 +17,7 @@ export default function Header({
     <header {...props} className={clsx(className, "pt-6 lg:pt-8 w-full")}>
       <div className="flex items-center justify-between">
         <div className="flex items-center justify-center gap-2 cursor-pointer">
-          <div className="relative flex space-x-3 cursor-pointer hover:scale-105 transition">
+          <Link href="/" className="relative flex space-x-3 cursor-pointer hover:scale-105 transition">
             <div className="bg-emerald-500 absolute bottom-0 left-12   rounded-full border-2 border-white h-4 w-4" />
             <div className="rounded-full overflow-hidden w-12 h-12">
               <Image
@@ -35,7 +36,7 @@ export default function Header({
                 @Platform Engineer
               </h5>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="flex flex-row">
           {tabs.map((item) => (

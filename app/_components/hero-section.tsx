@@ -492,7 +492,7 @@ export default function HeroSection(props: ComponentProps<"section">) {
                   </button>
                 </div>
               </Link>
-              <Link href="/" className="">
+              <Link href="/projects" className="">
                 <ButtonGooey text={"View more"} />
               </Link>
             </div>
