@@ -19,7 +19,7 @@ const Footer = () => {
           </span>
           <a
             className="link ml-auto inline-flex items-center gap-1.5"
-            href="https://github.com/marcbouchenoire/marcbouchenoire.com"
+            href="https://github.com/QuadNard"
             rel="noreferrer"
             target="_blank"
           >

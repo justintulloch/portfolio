@@ -2,7 +2,7 @@ import { Bento } from "./_components/bento";
 import Footer from "./_components/footer";
 import GradientBg from "./_components/gradient";
 import Header from "./_components/header";
-import HeroSection from "./_components/hero-section";
+
 
 export default function Home() {
   return (
