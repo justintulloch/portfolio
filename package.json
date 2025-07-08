@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev:poll": "CHOKIDAR_USEPOLLING=true next dev",
     "lint": "next lint",
     "start": "next start",
     "format": "prettier --check --ignore-path .gitignore .",
@@ -20,7 +20,7 @@
     "glslify-loader": "^2.0.0",
     "lucide-react": "^0.330.0",
     "next": "^14.1.1-canary.51",
-    "nice-color-palettes": "^3.0.0",
+    "nice-color-palettes": "^4.0.0",
     "raw-loader": "^4.0.2",
     "react": "^18",
     "react-dom": "^18",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
     "@commitlint/config-conventional": "^18.6.0",
+    "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",

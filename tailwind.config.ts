@@ -8,6 +8,38 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        sidebar: 'sidebar .64s cubic-bezier(.22,1,.36,1)', 
+        sidebarSlideInLeft: 'sidebarSlideInLeft 0.64s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        sidebarSlideInRight: 'sidebarSlideInRight 0.64s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+
+      },
+      keyframes: {
+        sidebar: {
+          '0%': { transform: 'translate(-100%)' },
+          '100%': { transform: 'translate(0)' },
+        },
+        sidebarSlideInLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        sidebarSlideInRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+      transitionTimingFunction: {
+        'curve-sidebar': 'cubic-bezier(.22,1,.36,1)',
+        'curve-a': 'cubic-bezier(0.8, 0, 0.2, 1)',       // --ease-curve-a
+        'curve-c': 'cubic-bezier(0.19, 1, 0.22, 1)',     // --ease-curve-c
+        'curve-d': 'cubic-bezier(0.2, 0, 0, 1)',   
+      },
+      spacing: {
+        'nav-width': '12.5rem',
+      },
+      transitionDuration: {
+        sidebar: '640ms'
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -45,6 +77,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require('@tailwindcss/container-queries'),
+  ],
 };
 export default config;
