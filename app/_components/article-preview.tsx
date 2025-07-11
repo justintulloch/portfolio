@@ -2,22 +2,38 @@
 
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
-import { px } from "framer-motion"
-import { NowPlaying, Track } from "./track-animation"
+import { NowPlaying } from "./track-animation"
 import { useNowPlaying } from "@/hooks/use-now-playing "
+import TabSection from "./tab-section"
+import RelatedSystemDocs from "./related-docs"
+import { ResumeSection } from "./resume-section"
 
 
 
+interface ArticleProps {
+    samples?: {
+        id: string
+        title: string
+        content: React.ReactNode
+    }[]
+    citations?: {
+    id: string
+    text: string
+    url?: string
+    }[]
+}
 
 
-
-export default function ArticlePreview() {
+export default function ArticlePreview({
+     samples = [],
+    citations = [],
+}: ArticleProps) {
     const { track, loading, error } = useNowPlaying({
         refreshInterval: 1000 * 60 * 5,  // Refresh every 5 minutes
         apiEndpoint: "/api/now-playing",
     })
 
-    const isFetching = error || loading;
+    const isFetching = error ?? loading;
     const safeTrack = isFetching ? null : track;
 
         const [hasMounted, setHasMounted] = useState(false)
@@ -36,7 +52,7 @@ export default function ArticlePreview() {
         boxSizing: "border-box",
         border: "0 solid #e5e7eb",
       }} className="flex flex-col mt-10 gap-2xl @md:gap-3xl">
-            <div className="outer-container"> 
+            <div className="@container w-full max-w-container"> 
                     <div className="inner-wrapper">
                         <div className="grid-container">
                             <div className="main-content">
@@ -111,6 +127,63 @@ export default function ArticlePreview() {
                          </div>
                     </div>
                 </div> 
+                <div className="w-full grid grid-cols-12 @container max-w-container multi-columns:px-0 multi-columns:flex">
+                    <div className="col-span-12 @md:col-span-6 @md:col-start-4 max-w-none prose">
+                        <p className="mb-sm last:mb-0">
+                            <span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo felis a sapien facilisis, nec fermentum erat tincidunt. Pellentesque format facilisis est, id convallis ipsum iaculis at. In hac habitasse platea dictumst, ChatGPT lorem interdum nibh, commodo errorum agnoscere, praemissis fallaciis provocare, ac petitiones inopportunas recusare potest    
+                            </span>
+                        </p>
+                        <p className="mb-sm last:mb-0">
+                            <span> ChatGPT est fraternum exemplar ad </span>
+                            <Link href={"/"} className="transition ease-curve-a duration-250 underline-offset-[0.25rem] underline decoration-1 hover:text-primary-60 text-primary-100">
+                                <span>InstructGPT&nbsp;</span>
+                            </Link>
+                            <span>, quod instituitur ut mandatum in promptu sequatur et responsionem accuratam praebeat.</span>
+                        </p>
+                        <p className="mb-sm last:mb-0">
+                            <span>
+                                Excitati sumus ad ChatGPT introducendum ut opiniones usorum colligamus atque de virtutibus et infirmitatibus eius discamus. In tempore praevisionis investigatoriae, usus ChatGPT gratuitus est. Experire nunc apud&nbsp;
+                            </span>
+                            <Link href={"/"} className="transition ease-curve-a duration-250 underline-offset-[0.25rem] underline decoration-1 hover:text-primary-60 text-primary-100">
+                                <span>chatgpt.com</span>
+                            </Link>
+                            <span>.</span>
+                        </p>
+                    </div>
+                </div>
+                {/* Samples Section */}
+                {samples.length > 0 && <TabSection title="Samples" tabs={samples} />}
+
+                <section className="@container group/component-group">
+                        <div className="md-xs @md:mb-sm">
+                            <div className="@container max-w-container grid w-full grid-cols-12 toc-content-heading scroll-mt-[calc(var(--header-h)+var(--toc-button-h))]">
+                                <div className="@md:col-span-6 @md:col-start-4 col-span-12 max-w-none">
+                                    <h2 className="text-h3 scroll-mt-[calc(var(--header-h)+var(--toc-button-h))]">
+                                        Methodology
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="@container grid w-full grid-cols-12">
+                            <div className="col-span-12 grid w-full grid-cols-1 items-stretch gap-lg @md:gap-xl">
+                                <div className="w-full grid grid-cols-12 @container max-w-container multi-columns:px-0 multi-columns:flex">
+                                    <div className="col-span-12 @md:col-span-6 @md:col-start-4 max-w-none prose">
+                                        <ul className="mb-md marker:text-inherit last:mb-0 list-disc pl-2xs mx-3xs">
+                                            <li className="mb-4xs last:mb-0">
+                                                <span>ChatGPT interdum responsa verisimilia sed falsa vel absurda reddere potest. Huius quaestionis correctio difficilis est, quia: (1) in disciplina RL, fons veri non exstat; (2) instruere exemplar ad maiorem cautelam efficit ut interrogationes recte respondendas recusaret; et (3) disciplina supervisa exemplum fallit quia responsum ideale confunditur&nbsp;</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+                {/* Citations */}
+                {citations.length > 0 && <ResumeSection citations={citations} />}
+
+                <RelatedSystemDocs  />
       </article>
     )
 }

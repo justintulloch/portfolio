@@ -1,4 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import type { Config } from "tailwindcss";
+
+
 
 const config: Config = {
   content: [
@@ -46,6 +49,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
+        'scroll-mask': 'var(--scrollable-mask-right)',
         primary: {
           50: "#f0f9ff",
           100: "#e0f2fe",
@@ -80,6 +84,10 @@ const config: Config = {
   plugins: [
     require("@tailwindcss/typography"),
     require('@tailwindcss/container-queries'),
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require("tailwindcss-scoped-groups")({
+            groups: ["component-group"],
+    }),
   ],
 };
 export default config;

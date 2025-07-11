@@ -25,3 +25,4 @@ export type projectTypes = {
   link: string;
   content: string;
 };
+
