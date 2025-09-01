@@ -4,6 +4,7 @@ import type { Config } from "tailwindcss";
 
 
 const config: Config = {
+  mode: "jit",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -84,7 +85,6 @@ const config: Config = {
   plugins: [
     require("@tailwindcss/typography"),
     require('@tailwindcss/container-queries'),
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require("tailwindcss-scoped-groups")({
             groups: ["component-group"],
     }),
