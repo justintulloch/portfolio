@@ -10,7 +10,6 @@ export default function Header({
 }: ComponentProps<"header">) {
   const tabs = [
     { id: 1, text: "Home", link: "/" },
-    { id: 2, text: "Projects", link: "/projects" },
   ];
 
   return (
@@ -33,7 +32,7 @@ export default function Header({
                 TullochStudio
               </h4>
               <h5 className="text-sm tracking-tight text-zinc-500">
-                @Platform Engineer
+                @R&D Engineer
               </h5>
             </div>
           </Link>

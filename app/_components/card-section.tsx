@@ -25,6 +25,11 @@ const fade: Transition = {
   duration: 0.6,
 };
 
+const buttonTitle = "Red Button"; 
+const year = "2024";
+
+
+
 const ProjectCards: React.FC<{ title: string; description: string }> = ({
   title,
   description,
@@ -254,16 +259,16 @@ export default function CardSection(props: ComponentProps<"section">) {
                       <p className="my-1 flex items-center">
                         <span
                           className="truncate font-semibold text-zinc-500"
-                          title={"Red Button"}
+                          title={buttonTitle}
                         >
-                          {"Red Button" ?? <Skeleton className="w-40" />}
+                          {buttonTitle ?? <Skeleton className="w-40" />}
                         </span>{" "}
-                        {"2024" && (
+                        {year && (
                           <time
                             className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500"
                             dateTime={String(new Date("2024"))}
                           >
-                            {"2024"}
+                            {year}
                           </time>
                         )}
                       </p>

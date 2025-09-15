@@ -5,8 +5,10 @@ import Link from "next/link"
 import { NowPlaying } from "./track-animation"
 import { useNowPlaying } from "@/hooks/use-now-playing "
 import TabSection from "./tab-section"
-import RelatedSystemDocs from "./related-docs"
+
 import { ResumeSection } from "./resume-section"
+import RealtimeDate from "./real-time"
+import FrontPageFooter from "./front-footer"
 
 
 
@@ -58,12 +60,12 @@ export default function ArticlePreview({
                             <div className="main-content">
                                 <div className="content-wrapper">
                                     <div className="meta-info">
-                                        <p className="meta-date">November 30, 2022</p>
+                                        <RealtimeDate />
                                         <Link href={"/"} className="meta-category text-meta transition ease-curve-a duration-250 hover:text-primary-100">
-                                            Product
+                                            Portfolio
                                         </Link>
                                     </div>
-                                    <h1 className="main-title  text-balance scroll-mt-[calc(var(--header-h)+var(--toc-button-h))]">Introducing ChatGPT</h1>
+                                    <h1 className="main-title  text-balance scroll-mt-[calc(var(--header-h)+var(--toc-button-h))]">Deployable Systems, Engineered for Real-Time Performance</h1>
                                 
                                     <div className="cta-buttons">
                                         <Link href={"https://chatgpt.com/"} className="btn btn-primary">
@@ -71,7 +73,7 @@ export default function ArticlePreview({
                                 <svg width="11" style={{
                                     transform: "translate(1px, -1px)",
                                 }} viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.70985 4.5H7.7804M7.7804 4.5V10.5705M7.7804 4.5L0.780396 11.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M1.70985 4.5H7.7804M7.7804 4.5V10.5705M7.7804 4.5L0.780396 11.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"></path>
                                 </svg>
                                         
                                         </Link>
@@ -130,32 +132,32 @@ export default function ArticlePreview({
                 <div className="w-full grid grid-cols-12 @container max-w-container multi-columns:px-0 multi-columns:flex">
                     <div className="col-span-12 @md:col-span-6 @md:col-start-4 max-w-none prose">
                         <p className="mb-sm last:mb-0">
-                            <span>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo felis a sapien facilisis, nec fermentum erat tincidunt. Pellentesque format facilisis est, id convallis ipsum iaculis at. In hac habitasse platea dictumst, ChatGPT lorem interdum nibh, commodo errorum agnoscere, praemissis fallaciis provocare, ac petitiones inopportunas recusare potest    
+                            <span className="block mb-4">
+                                I engineer intelligent systems designed for speed, reliability, and production-grade deployment.
+                            </span>
+                            <span className="block">
+                                From quantized PyTorch inference pipelines to latency-resilient netcode, I build infrastructure that performs under pressure and scales cleanly.
                             </span>
                         </p>
                         <p className="mb-sm last:mb-0">
-                            <span> ChatGPT est fraternum exemplar ad </span>
+                            <span> My work spans from automated anomaly detection in satellite telemetry to simulation-driven ML models, all shipped with test-first discipline and operational awareness.</span>
                             <Link href={"/"} className="transition ease-curve-a duration-250 underline-offset-[0.25rem] underline decoration-1 hover:text-primary-60 text-primary-100">
-                                <span>InstructGPT&nbsp;</span>
+                                <span></span>
                             </Link>
-                            <span>, quod instituitur ut mandatum in promptu sequatur et responsionem accuratam praebeat.</span>
+                            <span></span>
                         </p>
                         <p className="mb-sm last:mb-0">
-                            <span>
-                                Excitati sumus ad ChatGPT introducendum ut opiniones usorum colligamus atque de virtutibus et infirmitatibus eius discamus. In tempore praevisionis investigatoriae, usus ChatGPT gratuitus est. Experire nunc apud&nbsp;
-                            </span>
                             <Link href={"/"} className="transition ease-curve-a duration-250 underline-offset-[0.25rem] underline decoration-1 hover:text-primary-60 text-primary-100">
-                                <span>chatgpt.com</span>
+                                <span></span>
                             </Link>
-                            <span>.</span>
+                            <span>Explore my projects and see how I design for execution.</span>
                         </p>
                     </div>
                 </div>
                 {/* Samples Section */}
                 {samples.length > 0 && <TabSection title="Samples" tabs={samples} />}
 
-                <section className="@container group/component-group">
+                <section id="research"  className="@container group/component-group">
                         <div className="md-xs @md:mb-sm">
                             <div className="@container max-w-container grid w-full grid-cols-12 toc-content-heading scroll-mt-[calc(var(--header-h)+var(--toc-button-h))]">
                                 <div className="@md:col-span-6 @md:col-start-4 col-span-12 max-w-none">
@@ -171,7 +173,12 @@ export default function ArticlePreview({
                                     <div className="col-span-12 @md:col-span-6 @md:col-start-4 max-w-none prose">
                                         <ul className="mb-md marker:text-inherit last:mb-0 list-disc pl-2xs mx-3xs">
                                             <li className="mb-4xs last:mb-0">
-                                                <span>ChatGPT interdum responsa verisimilia sed falsa vel absurda reddere potest. Huius quaestionis correctio difficilis est, quia: (1) in disciplina RL, fons veri non exstat; (2) instruere exemplar ad maiorem cautelam efficit ut interrogationes recte respondendas recusaret; et (3) disciplina supervisa exemplum fallit quia responsum ideale confunditur&nbsp;</span>
+                                                <span>{`
+                                                My architecture starts with what’s missing: failure cases, performance cliffs, deployment bottlenecks. I simulate those first.
+                                                    From there, I design systems that are modular, test-first, and driven by constraints. Every layer—from data ingestion to inference—must be observable, debuggable, and built to deploy.
+                                                    I enjoy working across diverse coding styles—from tight, test-driven loops to exploratory prototyping—but my favorite is to code what’s not written—using "Negative Space Programming" to eliminate fragility, enforce defaults, and define behavior through absence, not exception.
+                                                    The result: backend systems and ML pipelines that survive scale, drift, and latency—not just pass CI.
+                                                `}&nbsp;</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -183,7 +190,7 @@ export default function ArticlePreview({
                 {/* Citations */}
                 {citations.length > 0 && <ResumeSection citations={citations} />}
 
-                <RelatedSystemDocs  />
+                <FrontPageFooter />
       </article>
     )
 }

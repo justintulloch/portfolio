@@ -154,6 +154,7 @@ export function NowPlaying({
         <AnimatePresence initial={false} custom={direction} mode="wait">
           {currentTrack?.artwork && (
             <motion.img
+              fetchPriority="auto"
               key={currentTrack.id}
               custom={direction}
               variants={slideVariants}
@@ -226,7 +227,8 @@ export function NowPlaying({
         {/* Artist */}
         <div className="overflow-hidden">
           <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.p
+              <div>
+              <motion.div
               key={currentTrack?.id}
               custom={direction}
               variants={slideVariants}
@@ -240,9 +242,10 @@ export function NowPlaying({
               {loading ? (
                 <div className="h-3 bg-zinc-200 dark:bg-zinc-700 rounded animate-pulse w-24" />
               ) : (
-                currentTrack?.artist || "Unknown Artist"
+                <p>{currentTrack?.artist || "Unknown Artist"}</p>
               )}
-            </motion.p>
+            </motion.div>
+              </div>
           </AnimatePresence>
         </div>
       </div>
