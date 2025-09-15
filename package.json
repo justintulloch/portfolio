@@ -6,6 +6,7 @@
     "build": "next build",
     "dev:poll": "CHOKIDAR_USEPOLLING=true next dev",
     "lint": "next lint",
+    "export": "next export",
     "start": "next start",
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore ."
