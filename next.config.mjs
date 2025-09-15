@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: { unoptimized: true },
   swcMinify: true,
         webpack: (config, { isServer }) => {
         config.module.rules.push({
